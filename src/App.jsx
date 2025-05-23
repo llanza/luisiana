@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import imgUrl from './assets/los3.jpeg'
 import './App.css'
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
             <p>SAVE<br/>THE <strong>DATE</strong></p>
             <h1>Luis & Ana</h1>
         </div>
-        <img src="./assets/los3.jpeg" alt="los 3" />
+        <img src={imgUrl} alt="los 3" />
         
         <div className="date-icons">
             <p>14/09/25</p>
