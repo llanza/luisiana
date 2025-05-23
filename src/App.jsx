@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import heart from './assets/heart.svg'
 import imgUrl from './assets/los2.jpeg'
 import './App.css'
 
@@ -38,7 +39,9 @@ function App() {
             <p>14/09/25</p>
             <p id='countdown'></p>
             <div className="icons">
-                <button onClick={() => alert('Liked!')}>❤️</button>
+                <button onClick={() => alert('Liked!')}>
+                  <img src={heart} alt="heart" />
+                </button>
                 <button onClick={() => alert('Rewind!')}>⏪</button>
                 <button onClick={() => alert('Play Music!')}>🎵</button>
                 <button onClick={() => alert('Forward!')}>⏩</button>
