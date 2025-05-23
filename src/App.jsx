@@ -31,7 +31,8 @@ function App() {
             <p>SAVE<br/>THE <strong>DATE</strong></p>
             <h1>Luis & Ana</h1>
         </div>
-        <img src="/public/los3.jpeg" alt="los 3" />
+        <img src="src/assets/los3.jpeg" alt="los 3" />
+        
         <div className="date-icons">
             <p>14/09/25</p>
             <p id='countdown'></p>
