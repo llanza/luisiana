@@ -15,6 +15,7 @@ body {
     max-width: 400px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     position: relative;
+    border-radius: 10px;
 }
 
 .text p {
@@ -38,6 +39,7 @@ img {
     width: 100%;
     height: auto;
     margin: 20px 0;
+    border-radius: 10px;
 }
 
 .date-icons {
@@ -45,15 +47,15 @@ img {
     color: #333;
 }
 
-.icons span {
+.icons button {
     margin: 0 10px;
     font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
 }
 
-.icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+button:focus {
+    outline: none;
 }
