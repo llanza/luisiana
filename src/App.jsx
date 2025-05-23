@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import heart from './assets/heart.svg'
 import imgUrl from './assets/los2.jpeg'
+import play from './assets/play.svg'
+import playlist from './assets/playlist.svg'
 import './App.css'
 
 function App() {
@@ -42,10 +41,12 @@ function App() {
                 <button onClick={() => alert('Liked!')}>
                   <img src={heart} alt="heart" />
                 </button>
-                <button onClick={() => alert('Rewind!')}>⏪</button>
-                <button onClick={() => alert('Play Music!')}>🎵</button>
-                <button onClick={() => alert('Forward!')}>⏩</button>
-                <button onClick={() => alert('Added!')}>➕</button>
+                <button onClick={() => alert('Play Video!')}>
+                  <img src={play} alt="play" />
+                </button>
+                <button onClick={() => alert('Nuestra playlist!')}>
+                  <img src={playlist} alt="playlist" />
+                </button>
             </div>
         </div>
       </div>
