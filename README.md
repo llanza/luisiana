@@ -1,2 +1,2 @@
 # luisiana
-Louisiana's wedding website
+Luisiana's wedding website
