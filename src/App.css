@@ -32,6 +32,15 @@ body {
     padding: 12px;
 }
 
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
 .text p {
     font-size: 1.5rem;
     margin: 0;
@@ -75,7 +84,7 @@ button:focus {
     outline: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 500px), (max-height: 700px)  {
     .card {
         max-width: 98vw;
         width: 98vw;
@@ -84,6 +93,14 @@ button:focus {
         margin: 4vw 0;
         padding: 6px;
     }
+
+    .card-container {
+        max-width: 98vw;
+        width: 98vw;
+        height: 92vh;
+        max-height: 92vh;
+    }
+
     .text p {
         font-size: 1.1rem;
     }
