@@ -1,5 +1,6 @@
 import heart from './assets/heart.svg'
 import bigHeart from './assets/big-heart.png'
+import anayluis from './assets/anayluis.jpg'
 import photo1 from './assets/los2.jpeg'
 import photo2 from './assets/luisiana2.jpeg'
 import photo3 from './assets/luisiana3.jpeg'
@@ -7,6 +8,8 @@ import photo4 from './assets/luisiana4.jpeg'
 import play from './assets/play.svg'
 import stop from './assets/stop.svg'
 import playlist from './assets/playlist.svg'
+import juanlu from './assets/juanlu.webp'
+import flores from './assets/flores.png'
 import './App.css'
 import React, {useEffect, useState} from 'react'
 
@@ -25,12 +28,20 @@ function App() {
   }
 
   const handlePlaylistClick = () => {
-    setShowPlaylist(!showPlaylist);
+    setShowPlaylist((prev) => {
+      if(!prev) setShowSlideshow(false);
+      return !prev
+    });
   }
 
   const handlePlayClick = () => {
-    setShowSlideshow(!showSlideshow);
-    setSlideIndex(0);
+    setShowSlideshow((prev) => {
+      if  (!prev) {
+        setShowPlaylist(false);
+        setSlideIndex(0);
+      } 
+      return !prev;
+    });
   }
 
   useEffect(() => {
@@ -49,7 +60,7 @@ const handleCloseSlideshow = () => {
 }
 
 
-  const weddingDate = new Date("Sep 14, 2025 00:00:00").getTime();
+  const weddingDate = new Date("Sep 14, 2025 11:00:00").getTime();
 
   const x = setInterval(() => {
       const now = new Date().getTime();
@@ -60,21 +71,25 @@ const handleCloseSlideshow = () => {
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      document.getElementById("countdown").innerHTML = `Faltan ${days} días ${hours} horas ${minutes} minutos ${seconds} segundos`;
+
 
       if (distance < 0) {
           clearInterval(x);
-          document.getElementById("countdown").innerHTML = "The wedding has started!";
+          document.getElementById("countdown").innerHTML = "¡Es hoy!";
       }
   }, 1000);
 
   return (
     <>
       <div className='card'>
-        <div className="text">
-            <p>SAVE<br/>THE <strong>DATE</strong></p>
-            <h1>Luis & Ana</h1>
+        <div className="text save-date">
+        <span>SAVE</span>
+        <span>THE</span>
+        <span className='date'>DATE</span>
         </div>
+        <div className='text luis-ana'>Ana & Luis</div>
+        <div className="image-container">
         {showSlideshow ? (
           <img 
           src={photos[slideIndex]} 
@@ -83,13 +98,28 @@ const handleCloseSlideshow = () => {
           onClick={handleCloseSlideshow}
           style={{ cursor: 'pointer' }}
           />
+        ) : showPlaylist ? (
+         <div style={{ width: '100%', marginTop: 16 }}>
+            <iframe
+              style={{ borderRadius: 12, width: '100%', minHeight: 200, maxHeight: 352 }}
+              src="https://open.spotify.com/embed/playlist/1hFhnUELDy8Z2wCMEqFLHj?utm_source=generator"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allowFullScreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Spotify Playlist"
+            ></iframe>
+          </div>
         ) : (
-          <img src={photo1} alt="los 2" />
+          <img src={anayluis} alt="los 2" />
           )}
+        </div>
         
         <div className="date-icons">
             <div className="date-countdown">
-              <p id='wedding-date' className='wedding-date'>14/09/25</p>
+              <p id='wedding-date' className='wedding-date'>14 de Septiembre de 2025</p>
               <p id='countdown'className='countdown'></p>
             </div>
             
@@ -106,26 +136,11 @@ const handleCloseSlideshow = () => {
             </div>
         </div>
         {showHeart && (
-          <img src={bigHeart} alt="heart-animation" className="heart-anim" />
-        )}
-
-        {showPlaylist && (
-         <div style={{ width: '100%', marginTop: 16 }}>
-            <iframe
-              style={{ borderRadius: 12, width: '100%', minHeight: 200, maxHeight: 352 }}
-              src="https://open.spotify.com/embed/playlist/1hFhnUELDy8Z2wCMEqFLHj?utm_source=generator"
-              width="100%"
-              height="352"
-              frameBorder="0"
-              allowFullScreen=""
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              title="Spotify Playlist"
-            ></iframe>
-          </div>
+          <img src={juanlu} alt="heart-animation" className="heart-anim" />
         )}
 
       </div>
+      {/* <div className="flores"><img src={flores} alt="flores" /></div> */}
     </>
   )
 }

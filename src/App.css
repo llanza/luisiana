@@ -2,7 +2,7 @@
 body {
     background-color: #000;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Lora', serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,6 @@ body {
     width: 95vw;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     position: relative;
-    border-radius: 10px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -39,6 +38,25 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
+    padding: 5vh 0;
+}
+
+.image-container {
+    width: 100%;
+    max-width: 450px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
 }
 
 .text p {
@@ -51,11 +69,69 @@ body {
     font-size: 2rem;
 }
 
+.text.luis-ana {
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: "Tangerine", cursive;
+    color: rgba(0, 0, 0, 0.911);
+    margin-top: 10px;
+} 
+
+.save-date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    margin-left: 20px;    
+    align-self: flex-start;
+}
+
+.save-date span.date {
+    font-weight: bold;
+}
+
+.save-date span {
+    font-size: 2rem;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    font-family: 'Playfair Display', sans-serif;
+}
+
 h1 {
     font-family: 'Cursive', sans-serif;
     font-size: 2.5rem;
     margin: 10px 0;
     color: #333;
+}
+
+h1, .wedding-date {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 2px;
+}
+
+.date-countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.wedding-date {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.828);
+  letter-spacing: 2px;
+  margin: 0 0 4px 0;
+}
+
+.countdown {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2222229c;
+  padding: 6px 18px;
+  border-radius: 18px;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 img {
@@ -73,7 +149,7 @@ img {
 
 .icons button {
     margin: 0 10px;
-    font-size: 1.5rem;
+    font-size: 2rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -84,11 +160,33 @@ button:focus {
     outline: none;
 }
 
+.flores {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    
+    max-height: 50vh;
+}
+
+.flores img {
+    width: 100vw;
+    max-width: 100vw;
+    height: auto;
+    display: block;
+    pointer-events: none;
+    opacity: 0.95;
+    margin: 0;
+}
+
 @media (max-width: 500px), (max-height: 700px)  {
     .card {
         max-width: 98vw;
         width: 98vw;
-        height: 92vh;
         max-height: 92vh;
         margin: 4vw 0;
         padding: 6px;
@@ -97,8 +195,6 @@ button:focus {
     .card-container {
         max-width: 98vw;
         width: 98vw;
-        height: 92vh;
-        max-height: 92vh;
     }
 
     .text p {
@@ -116,7 +212,7 @@ button:focus {
     }
     .icons button {
         margin: 0 4px;
-        font-size: 1.2rem;
+        font-size: 2rem;
     }
 }
 
@@ -139,7 +235,7 @@ button:focus {
     }
     20% {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(1.2);
+        transform: translate(-50%, -50%) scale(1.5);
     }
     60% {
         opacity: 1;
@@ -152,30 +248,3 @@ button:focus {
     }
 }
 
-.date-countdown {
-    display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.wedding-date {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #264cd7;
-  letter-spacing: 2px;
-  margin: 0 0 4px 0;
-  text-shadow: 1px 1px 8px #fff, 0 2px 8px #d7266044;
-}
-
-.countdown {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #222;
-  background: #eaf2ff;
-  padding: 6px 18px;
-  border-radius: 18px;
-  box-shadow: 0 2px 8px #d7266022;
-  margin: 0;
-  letter-spacing: 1px;
-}
