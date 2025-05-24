@@ -25,6 +25,8 @@ body {
     justify-content: center;
     align-items: center;
     overflow: auto;
+    width: 90vh;
+    padding: 16px;
 }
 
 .text p {
@@ -46,6 +48,7 @@ h1 {
 
 img {
     width: 100%;
+    max-width: 350px;
     height: auto;
     margin: 20px 0;
     border-radius: 10px;
@@ -67,4 +70,29 @@ img {
 
 button:focus {
     outline: none;
+}
+
+@media (max-width: 500px) {
+    .card {
+        max-width: 98vw;
+        padding: 8px;
+        margin: 4vw 0;
+    }
+    .text p {
+        font-size: 1.1rem;
+    }
+    .text strong {
+        font-size: 1.3rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    img {
+        max-width: 90vw;
+        margin: 8px 0;
+    }
+    .icons button {
+        margin: 0 4px;
+        font-size: 1.2rem;
+    }
 }
