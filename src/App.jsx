@@ -88,8 +88,11 @@ const handleCloseSlideshow = () => {
           )}
         
         <div className="date-icons">
-            <p>14/09/25</p>
-            <p id='countdown'></p>
+            <div className="date-countdown">
+              <p id='wedding-date' className='wedding-date'>14/09/25</p>
+              <p id='countdown'className='countdown'></p>
+            </div>
+            
             <div className="icons">
                 <button onClick={handleHeartClick}>
                   <img src={heart} alt="heart" />

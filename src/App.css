@@ -151,3 +151,31 @@ button:focus {
         transform: translate(-50%, -50%) scale(1.5);
     }
 }
+
+.date-countdown {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.wedding-date {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #264cd7;
+  letter-spacing: 2px;
+  margin: 0 0 4px 0;
+  text-shadow: 1px 1px 8px #fff, 0 2px 8px #d7266044;
+}
+
+.countdown {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+  background: #eaf2ff;
+  padding: 6px 18px;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px #d7266022;
+  margin: 0;
+  letter-spacing: 1px;
+}
