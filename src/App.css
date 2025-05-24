@@ -7,26 +7,29 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    min-width: 100vw;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 .card {
     background-color: #f9f9f9;
-    padding: 20px;
     text-align: center;
     max-width: 400px;
+    width: 95vw;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     position: relative;
     border-radius: 10px;
-    max-height: 100vh;
-    margin: 10px 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: auto;
-    width: 90vh;
-    padding: 16px;
+    height: 90vh;
+    margin: 5vh 0;
+    overflow: hidden;
+    padding: 12px;
 }
 
 .text p {
@@ -75,8 +78,11 @@ button:focus {
 @media (max-width: 500px) {
     .card {
         max-width: 98vw;
-        padding: 8px;
+        width: 98vw;
+        height: 92vh;
+        max-height: 92vh;
         margin: 4vw 0;
+        padding: 6px;
     }
     .text p {
         font-size: 1.1rem;
