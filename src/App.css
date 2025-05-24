@@ -119,3 +119,35 @@ button:focus {
         font-size: 1.2rem;
     }
 }
+
+.heart-anim {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: heart-pop 1s forwards;
+    z-index: 10;
+}
+
+@keyframes heart-pop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    60% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}

@@ -1,10 +1,53 @@
 import heart from './assets/heart.svg'
-import imgUrl from './assets/los2.jpeg'
+import bigHeart from './assets/big-heart.png'
+import photo1 from './assets/los2.jpeg'
+import photo2 from './assets/luisiana2.jpeg'
+import photo3 from './assets/luisiana3.jpeg'
+import photo4 from './assets/luisiana4.jpeg'
 import play from './assets/play.svg'
+import stop from './assets/stop.svg'
 import playlist from './assets/playlist.svg'
 import './App.css'
+import React, {useEffect, useState} from 'react'
 
 function App() {
+  const [showHeart, setShowHeart] = useState(false);
+  const [showPlaylist, setShowPlaylist] = useState(false);
+  const [showSlideshow, setShowSlideshow] = useState(false);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const slideShowInterval = React.useRef(null);
+
+  const photos = [photo2, photo3, photo4, photo1];
+
+  const handleHeartClick = () => {
+    setShowHeart(true);
+    setTimeout(() => setShowHeart(false), 800);
+  }
+
+  const handlePlaylistClick = () => {
+    setShowPlaylist(!showPlaylist);
+  }
+
+  const handlePlayClick = () => {
+    setShowSlideshow(!showSlideshow);
+    setSlideIndex(0);
+  }
+
+  useEffect(() => {
+    if (showSlideshow){
+      slideShowInterval.current = setInterval(() => {
+        setSlideIndex(prev => (prev + 1) % photos.length);
+    }, 2000);
+  } else {
+    clearInterval(slideShowInterval.current);
+  }
+  return () => clearInterval(slideShowInterval.current);
+}, [showSlideshow, photos.length]);
+
+const handleCloseSlideshow = () => {
+  setShowSlideshow(false);
+}
+
 
   const weddingDate = new Date("Sep 14, 2025 00:00:00").getTime();
 
@@ -32,23 +75,53 @@ function App() {
             <p>SAVE<br/>THE <strong>DATE</strong></p>
             <h1>Luis & Ana</h1>
         </div>
-        <img src={imgUrl} alt="los 2" />
+        {showSlideshow ? (
+          <img 
+          src={photos[slideIndex]} 
+          alt={`slide-${slideIndex}`} 
+          className='slideshow-photo' 
+          onClick={handleCloseSlideshow}
+          style={{ cursor: 'pointer' }}
+          />
+        ) : (
+          <img src={photo1} alt="los 2" />
+          )}
         
         <div className="date-icons">
             <p>14/09/25</p>
             <p id='countdown'></p>
             <div className="icons">
-                <button onClick={() => alert('Liked!')}>
+                <button onClick={handleHeartClick}>
                   <img src={heart} alt="heart" />
                 </button>
-                <button onClick={() => alert('Play Video!')}>
-                  <img src={play} alt="play" />
+                <button onClick={handlePlayClick}>
+                  <img src={showSlideshow ? stop : play} alt={showSlideshow ? "stop" : "play"} />
                 </button>
-                <button onClick={() => alert('Nuestra playlist!')}>
+                <button onClick={handlePlaylistClick}>
                   <img src={playlist} alt="playlist" />
                 </button>
             </div>
         </div>
+        {showHeart && (
+          <img src={bigHeart} alt="heart-animation" className="heart-anim" />
+        )}
+
+        {showPlaylist && (
+         <div style={{ width: '100%', marginTop: 16 }}>
+            <iframe
+              style={{ borderRadius: 12, width: '100%', minHeight: 200, maxHeight: 352 }}
+              src="https://open.spotify.com/embed/playlist/1hFhnUELDy8Z2wCMEqFLHj?utm_source=generator"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allowFullScreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Spotify Playlist"
+            ></iframe>
+          </div>
+        )}
+
       </div>
     </>
   )
