@@ -18,9 +18,16 @@ function App() {
   const [showPlaylist, setShowPlaylist] = useState(false);
   const [showSlideshow, setShowSlideshow] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
+  const [countdown, setCountdown] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    finished: false
+  });
   const slideShowInterval = React.useRef(null);
 
-  const photos = [photo2, photo3, photo4, photo1];
+  const photos = [photo2, photo3, photo4, photo1, anayluis];
 
   const handleHeartClick = () => {
     setShowHeart(true);
@@ -53,58 +60,63 @@ function App() {
     clearInterval(slideShowInterval.current);
   }
   return () => clearInterval(slideShowInterval.current);
-}, [showSlideshow, photos.length]);
+  }, [showSlideshow, photos.length]);
 
-const handleCloseSlideshow = () => {
-  setShowSlideshow(false);
-}
+  const handleCloseSlideshow = () => {
+    setShowSlideshow(false);
+  }
 
+  useEffect(() => {
+    const weddingDate = new Date("2025-09-14T11:00:00-05:00").getTime();
 
-  const weddingDate = new Date("Sep 14, 2025 11:00:00").getTime();
-
-  const x = setInterval(() => {
+    const interval = setInterval( () => {
       const now = new Date().getTime();
       const distance = weddingDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML = `Faltan ${days} días ${hours} horas ${minutes} minutos ${seconds} segundos`;
-
-
       if (distance < 0) {
-          clearInterval(x);
-          document.getElementById("countdown").innerHTML = "¡Es hoy!";
+        clearInterval(interval);
+        setCountdown({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+          finished: true
+        });
+        return;   
       }
+
+      setCountdown({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+        finished: false
+      });
   }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+
+  
 
   return (
     <>
       <div className='card'>
-        <div className="text save-date">
-        <span>SAVE</span>
-        <span>THE</span>
-        <span className='date'>DATE</span>
-        </div>
-        <div className='text luis-ana'>Ana & Luis</div>
-        <div className="image-container">
+        <div className='card-image-top'>
         {showSlideshow ? (
           <img 
           src={photos[slideIndex]} 
           alt={`slide-${slideIndex}`} 
-          className='slideshow-photo' 
+          className='card-image' 
           onClick={handleCloseSlideshow}
           style={{ cursor: 'pointer' }}
           />
         ) : showPlaylist ? (
-         <div style={{ width: '100%', marginTop: 16 }}>
+         <div className='playlist-container'>
             <iframe
-              style={{ borderRadius: 12, width: '100%', minHeight: 200, maxHeight: 352 }}
               src="https://open.spotify.com/embed/playlist/1hFhnUELDy8Z2wCMEqFLHj?utm_source=generator"
               width="100%"
-              height="352"
+              height="100%"
               frameBorder="0"
               allowFullScreen=""
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -113,14 +125,49 @@ const handleCloseSlideshow = () => {
             ></iframe>
           </div>
         ) : (
-          <img src={anayluis} alt="los 2" />
+          <img src={anayluis} alt="los 2" className='card-image'/>
           )}
+
+          {!showPlaylist && (
+            <>
+              <div className="overlay-text save-date">
+                <span>SAVE</span>
+                <span>THE</span>
+                <span className='date'>DATE</span>
+              </div>
+              <div className='overlay-text luis-ana'>Ana & Luis</div>
+            </>
+          )}
+ 
+          {showHeart && (
+          <img src={juanlu} alt="heart-animation" className="heart-anim" />
+          )}
+
         </div>
         
         <div className="date-icons">
             <div className="date-countdown">
               <p id='wedding-date' className='wedding-date'>14 de Septiembre de 2025</p>
-              <p id='countdown'className='countdown'></p>
+              {countdown.finished ? (<div className='countdown-finished'>¡Es hoy!</div>) : (
+                <div className='countdown'>
+                <div className='countdown-unit'>
+                  <span className='countdown-number'>{countdown.days}</span>
+                  <span className='countdown-label'>días</span>
+                </div>
+                <div className='countdown-unit'>
+                  <span className='countdown-number'>{countdown.hours}</span>
+                  <span className='countdown-label'>horas</span>
+                </div>
+                <div className='countdown-unit'>
+                  <span className='countdown-number'>{countdown.minutes}</span>
+                  <span className='countdown-label'>minutos</span>
+                </div>
+                <div className='countdown-unit'>
+                  <span className='countdown-number'>{countdown.seconds}</span>
+                  <span className='countdown-label'>segundos</span>
+                </div>
+              </div>
+              )}
             </div>
             
             <div className="icons">
@@ -135,10 +182,6 @@ const handleCloseSlideshow = () => {
                 </button>
             </div>
         </div>
-        {showHeart && (
-          <img src={juanlu} alt="heart-animation" className="heart-anim" />
-        )}
-
       </div>
       {/* <div className="flores"><img src={flores} alt="flores" /></div> */}
     </>

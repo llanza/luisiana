@@ -23,12 +23,28 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 90vh;
-    margin: 5vh 0;
-    overflow: auto;
-    padding: 12px;
+    max-height: 90vh;
+    overflow: hidden;
+    padding: 0;
+}
+
+.card-image-top {
+    width: 100%;
+    height: 65%;
+    min-height: 180px;
+    max-height: 65%;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scale: 1.4;
 }
 
 .card-container {
@@ -59,42 +75,49 @@ body {
     border-radius: 10px;
 }
 
-.text p {
-    font-size: 1.5rem;
-    margin: 0;
-    color: #333;
+.overlay-text {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: left;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    padding-left: 24px;
+    padding-right: 24px;
 }
-
-.text strong {
-    font-size: 2rem;
-}
-
-.text.luis-ana {
-    font-size: 4rem;
-    font-weight: bold;
-    font-family: "Tangerine", cursive;
-    color: rgba(0, 0, 0, 0.911);
-    margin-top: 10px;
-} 
 
 .save-date {
+    top: 18px;
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    letter-spacing: 2px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 8px;
-    margin-left: 20px;    
-    align-self: flex-start;
+    gap: 0.1em;
 }
 
-.save-date span.date {
-    font-weight: bold;
-}
-
-.save-date span {
+.save-date .date {
     font-size: 2rem;
-    line-height: 1.1;
-    letter-spacing: 2px;
-    font-family: 'Playfair Display', sans-serif;
+}
+
+.luis-ana {
+    bottom: 18px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+    font-family: "Tangerine", cursive;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    position: absolute;
+    padding-left: 0px;
+}
+
+.playlist-container {
+    height: 100%;
+    max-height: 100%;
 }
 
 h1 {
@@ -109,11 +132,41 @@ h1, .wedding-date {
     letter-spacing: 2px;
 }
 
-.date-countdown {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
+.countdown {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 18px 0 8px 0;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-number {
+    background: #fff;
+    color: #b48a78;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 16px;
+    min-width: 56px;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px #d7266022;
+    margin-bottom: 4px;
+    border: 2px solid #f3e6e1;
+}
+
+.countdown-label {
+    font-size: 1rem;
+    color: #b48a78;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
 .wedding-date {
@@ -121,7 +174,7 @@ h1, .wedding-date {
   font-weight: bold;
   color: rgba(0, 0, 0, 0.828);
   letter-spacing: 2px;
-  margin: 0 0 4px 0;
+  margin: 8px 4px;
 }
 
 .countdown {
@@ -148,12 +201,16 @@ img {
 }
 
 .icons button {
-    margin: 0 10px;
+    margin: 0 8px;
     font-size: 2rem;
     background: none;
     border: none;
     cursor: pointer;
     color: inherit;
+}
+
+.icons button img {
+    scale: 1.4;
 }
 
 button:focus {
