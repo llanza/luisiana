@@ -35,8 +35,8 @@ body {
 
 .outer-card {
     position: relative;
-    width: 500px;
     max-width: 500px;
+    height: 100vh;
     background-color: #000;
     overflow: hidden;
 }
@@ -242,18 +242,7 @@ button:focus {
 
 
 @media (max-width: 500px), (max-height: 700px)  {
-    .card {
-        max-width: 98vw;
-        width: 98vw;
-        max-height: 92vh;
-        margin: 4vw 0;
-        padding: 6px;
-    }
 
-    .card-container {
-        max-width: 98vw;
-        width: 98vw;
-    }
 
     .text p {
         font-size: 1.1rem;
