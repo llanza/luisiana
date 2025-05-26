@@ -101,6 +101,7 @@ function App() {
 
   return (
     <>
+    <div className='outer-card'>
       <div className='card'>
         <div className='card-image-top'>
         {showSlideshow ? (
@@ -183,7 +184,8 @@ function App() {
             </div>
         </div>
       </div>
-      {/* <div className="flores"><img src={flores} alt="flores" /></div> */}
+      <div className="flores"><img src={flores} alt="flores" /></div>
+     </div>
     </>
   )
 }

@@ -1,23 +1,53 @@
 
 body {
-    background-color: #000;
+    background-color: #fff;
     margin: 0;
     font-family: 'Lora', serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     min-height: 100vh;
     min-width: 100vw;
-    height: 100vh;
-    width: 100vw;
-    overflow: auto;
 }
+
+.flores {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    pointer-events: none;
+    max-height: 30%;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.flores img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.outer-card {
+    position: relative;
+    width: 500px;
+    max-width: 500px;
+    background-color: #000;
+    overflow: hidden;
+}
+
 
 .card {
     background-color: #f9f9f9;
     text-align: center;
-    max-width: 400px;
+    max-width: 420px;
     width: 95vw;
+    height: 100vh;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     position: relative;
     box-sizing: border-box;
@@ -25,17 +55,16 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 90vh;
-    max-height: 90vh;
     overflow: hidden;
     padding: 0;
+    margin: 0 auto;
 }
 
 .card-image-top {
     width: 100%;
-    height: 65%;
+    height: 60%;
     min-height: 180px;
-    max-height: 65%;
+    max-height: 60%;
     overflow: hidden;
     position: relative;
 }
@@ -187,13 +216,7 @@ h1, .wedding-date {
   letter-spacing: 1px;
 }
 
-img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 10px;
-}
+
 
 .date-icons {
     margin-top: 10px;
@@ -217,28 +240,6 @@ button:focus {
     outline: none;
 }
 
-.flores {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    pointer-events: none;
-    
-    max-height: 50vh;
-}
-
-.flores img {
-    width: 100vw;
-    max-width: 100vw;
-    height: auto;
-    display: block;
-    pointer-events: none;
-    opacity: 0.95;
-    margin: 0;
-}
 
 @media (max-width: 500px), (max-height: 700px)  {
     .card {
