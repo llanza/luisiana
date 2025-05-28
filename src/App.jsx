@@ -1,10 +1,20 @@
 import heart from './assets/heart.svg'
 import bigHeart from './assets/big-heart.png'
-import anayluis from './assets/anayluis.jpg'
-import photo1 from './assets/los2.jpeg'
-import photo2 from './assets/luisiana2.jpeg'
-import photo3 from './assets/luisiana3.jpeg'
-import photo4 from './assets/luisiana4.jpeg'
+import photo1 from './assets/photo1.jpeg'
+import photo2 from './assets/photo2.jpeg'
+import photo3 from './assets/photo3.jpeg'
+import photo4 from './assets/photo4.jpeg'
+import photo5 from './assets/photo5.jpeg'
+import photo6 from './assets/photo6.jpeg'
+import photo7 from './assets/photo7.jpeg'
+import photo8 from './assets/photo8.jpeg'
+import photo9 from './assets/photo9.jpeg'
+import photo10 from './assets/photo10.jpeg'
+import photo11 from './assets/photo11.jpeg'
+import photo12 from './assets/photo12.jpeg'
+import photo13 from './assets/photo13.jpeg'
+import photo14 from './assets/photo14.jpeg'
+
 import play from './assets/play.svg'
 import stop from './assets/stop.svg'
 import playlist from './assets/playlist.svg'
@@ -27,7 +37,7 @@ function App() {
   });
   const slideShowInterval = React.useRef(null);
 
-  const photos = [photo2, photo3, photo4, photo1, anayluis];
+  const photos = [photo2, photo3, photo4, photo5, photo6, photo7];
 
   const handleHeartClick = () => {
     setShowHeart(true);
@@ -126,7 +136,7 @@ function App() {
             ></iframe>
           </div>
         ) : (
-          <img src={anayluis} alt="los 2" className='card-image'/>
+          <img src={photo4} alt="los 2" className='card-image'/>
           )}
 
           {!showPlaylist && (

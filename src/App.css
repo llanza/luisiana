@@ -59,6 +59,7 @@ body {
     overflow: hidden;
     padding: 0;
     margin: 0 auto;
+    gap: 24px;
 }
 
 .card-image-top {
@@ -213,14 +214,12 @@ h1, .wedding-date {
   color: #2222229c;
   padding: 6px 18px;
   border-radius: 18px;
-  margin: 0;
+  margin: 8px 4px;
   letter-spacing: 1px;
 }
 
 
-
 .date-icons {
-    margin-top: 10px;
     color: #333;
 }
 
