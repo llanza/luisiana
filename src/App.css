@@ -60,6 +60,7 @@ body {
     padding: 0;
     margin: 0 auto;
     gap: 24px;
+    padding-bottom: 64px;
 }
 
 .card-image-top {
@@ -221,6 +222,7 @@ h1, .wedding-date {
 
 .date-icons {
     color: #333;
+    z-index: 20;
 }
 
 .icons button {
@@ -241,9 +243,12 @@ button:focus {
 }
 
 
-@media (max-width: 500px), (max-height: 700px)  {
+@media (max-width: 500px) {
 
-
+    .card {
+        padding-bottom:90px;
+    }
+    
     .text p {
         font-size: 1.1rem;
     }
