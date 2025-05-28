@@ -65,9 +65,9 @@ body {
 
 .card-image-top {
     width: 100%;
-    height: 50%;
+    height: 60%;
     min-height: 180px;
-    max-height: 50%;
+    max-height: 60%;
     overflow: hidden;
     position: relative;
 }
