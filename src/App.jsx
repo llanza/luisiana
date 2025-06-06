@@ -37,7 +37,7 @@ function App() {
   });
   const slideShowInterval = React.useRef(null);
 
-  const photos = [photo2, photo3, photo4, photo5, photo6, photo8];
+  const photos = [photo2, photo3, photo4, photo5, photo6, photo7, photo8];
 
   const handleHeartClick = () => {
     setShowHeart(true);
@@ -144,7 +144,7 @@ function App() {
             ></iframe>
           </div>
         ) : (
-          <img src={photo7} alt="los 2" className='card-image'/>
+          <img src={photo4} alt="los 2" className='card-image'/>
           )}
 
           {!showPlaylist && (
