@@ -21,7 +21,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -10px;
+    bottom: -30px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -226,6 +226,15 @@ h1, .wedding-date {
   letter-spacing: 1px;
 }
 
+.icons {
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: flex;
+    align-content: flex-start;
+    justify-content: center;
+    gap: 16px;
+}
+
 
 .date-icons {
     color: #333;
@@ -233,12 +242,12 @@ h1, .wedding-date {
 }
 
 .icons button {
-    margin: 0 8px;
     font-size: 2rem;
     background: none;
     border: none;
     cursor: pointer;
     color: inherit;
+    padding-top: 0;
 }
 
 .icons button img {
@@ -268,10 +277,6 @@ button:focus {
     img {
         max-width: 90vw;
         margin: 8px 0;
-    }
-    .icons button {
-        margin: 0 4px;
-        font-size: 2rem;
     }
 }
 
